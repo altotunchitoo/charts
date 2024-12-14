@@ -14,7 +14,6 @@
 // limitations under the License.
 
 import 'dart:math' show min;
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 /// Strategy for building legend from legend entry widgets.
@@ -101,8 +100,8 @@ class TabularLegendLayout implements LegendLayout {
       cellPadding == o.cellPadding;
 
   @override
-  int get hashCode => hashValues(
-      desiredMaxRows, desiredMaxColumns, isHorizontalFirst, cellPadding);
+  int get hashCode => Object.hashAll(
+      [desiredMaxRows, desiredMaxColumns, isHorizontalFirst, cellPadding]);
 
   Widget _buildHorizontalFirst(List<Widget> legendEntries) {
     final maxColumns = (desiredMaxColumns == _noLimit)
